@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelasu;
+package model;
 
 /**
  *
  * @author admin
  */
-public class Pasienjing {
+public class Pasien {
     private String nama;
 }
