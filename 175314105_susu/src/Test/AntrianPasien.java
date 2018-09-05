@@ -1,4 +1,4 @@
-package Praktikum1;
+package Test;
 
 public class AntrianPasien {
     private int tanggalAntrian,bulanAntrian, tahunAntrian; //variabel bertipe data integer bersifaat private

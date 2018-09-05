@@ -1,4 +1,4 @@
-package Praktikum1;
+package Test;
 
 public class Pasien {
     private String noRekamMedis,nama,alamat,tempatLahir; //variabel bertipe data String dan bersifat private
