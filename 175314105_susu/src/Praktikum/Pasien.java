@@ -1,8 +1,12 @@
-package Test;
+package Praktikum;
+
+import java.util.ArrayList;
 
 public class Pasien {
     private String noRekamMedis,nama,alamat,tempatLahir; //variabel bertipe data String dan bersifat private
-    private int tanggalLahir,bulanLahir,tahunLahir; //variabel bertipe data integer dan bersifat privat
+    private int tanggalLahir,bulanLahir,tahunLahir; //variabel bertipe data integer dan bersifat private
+    public static ArrayList <Pasien> daftarPasienKlinik = 
+            new ArrayList<Pasien>();
     
     public Pasien(){ //menambahkan konstruktor, Konsktruktor adalah method yang pertama kali dijalankan pada saat sebuah objek pertama kali diciptakan    
     }

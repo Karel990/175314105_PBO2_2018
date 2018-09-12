@@ -1,4 +1,4 @@
-package Test;
+package Praktikum;
 
 public class Klinik {
     private String idKlinik, nama; //variabel bertipe String bersifat private
