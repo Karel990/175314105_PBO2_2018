@@ -10,6 +10,10 @@ package View;
  *
  * @author admin
  */
-public class TampilanPendaftaran extends javax.swing.JDialog {
-    
+public class Tes {
+    public static void main(String[] args) {
+        DaftarAntrian test = new DaftarAntrian();
+        test.setSize(600, 400);
+        test.setVisible(true);
+    }
 }
