@@ -5,26 +5,41 @@
  */
 package Model;
 
+import java.util.ArrayList;
 /**
  *
  * @author admin
  */
 public class Klinik {
-    private String idKlinik, nama; //deklarasi variabel bertipe data String bersifat private
-
-    public String getIdKlinik() { //membuat method bernama getIdKlinik yang akan mereturn variabel bertipe data String
-        return idKlinik;
-    }
-
-    public void setIdKlinik(String idKlinik) { //membuat method void bernama setIdKlinik dengan parameter variabel idKlinik bertipe data String
-        this.idKlinik = idKlinik;
-    }
-
-    public String getNama() { //membuat method bernama getNama yang akan mereturn variabel bertipe data String
-        return nama;
-    }
-
-    public void setNama(String nama) { //membuat method void bernama setNama dengan parameter variabel nama bertipe data String
-        this.nama = nama;
-}
+    private String idKlinik;
+    private String namaKlinik;
+    private ArrayList<Dokter> daftarDokter = new ArrayList();
+  
+    public Klinik(String idKlinik, String namaKlinik) {
+    this.idKlinik = idKlinik;
+    this.namaKlinik = namaKlinik;
+  }
+  public Klinik() {
+  }
+  public String getIdKlinik(){
+    return idKlinik;
+  }
+  public void setIdKlinik(String idKlinik){
+    this.idKlinik = idKlinik;
+  }
+  public String getNamaKlinik(){
+    return namaKlinik;
+  }
+  public void setNamaKlinik(String namaKlinik){
+    this.namaKlinik = namaKlinik;
+  }
+  public ArrayList<Dokter> getDaftarDokter(){
+    return daftarDokter;
+  }
+  public void setDaftarDokter(ArrayList<Dokter> daftarDokter){
+    this.daftarDokter = daftarDokter;
+  }
+  public void tambahDokter(Dokter dokter) {
+    daftarDokter.add(dokter);
+  }
 }
