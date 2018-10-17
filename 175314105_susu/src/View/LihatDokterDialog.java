@@ -83,8 +83,8 @@ public class LihatDokterDialog extends javax.swing.JDialog {
 
     private void tambahButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahButtonActionPerformed
         // TODO add your handling code here:
-        TambahDokterDialog tambahDokter = new TambahDokterDialog(null, true);
-        tambahDokter.setVisible(true);
+//        TambahDokterDialog tambahDokter = new TambahDokterDialog(null, true);
+//        tambahDokter.setVisible(true);
     }//GEN-LAST:event_tambahButtonActionPerformed
 
     /**

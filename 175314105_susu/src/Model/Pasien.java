@@ -5,6 +5,7 @@
  */
 package Model;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -21,6 +22,16 @@ public final class Pasien {
                 return daftarPasienKlinik.get(i);
         }
         return null;
+    }
+    public static void simpanDaftarPasien(File file) {
+        getDaftarPasien();
+    }
+    public static Object getDaftarPasien() {
+        return null;
+    }
+    @Override
+    public String toString() {
+        return "Pasien : " + "Nama = " + nama + " , Alamat = " + alamat ;
     }
     private String noRekamMedis,nama,alamat,tempatLahir; //deklarasi variabel bertipe data String dan bersifat private
     private int tanggalLahir,bulanLahir,tahunLahir; //deklarasi variabel bertipe data integer dan bersifat privat
