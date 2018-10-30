@@ -6,8 +6,9 @@
 package Test;
 
 import java.util.ArrayList;
-import model.Pasien;
-import model.RumahSakit;
+import Model.Pasien;
+import Model.RumahSakit;
+import java.io.File;
 
 /**
  *
