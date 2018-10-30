@@ -16,10 +16,12 @@ import Model.RumahSakit;
 public class TesRumahSakit1 {
     public static void main(String[] args) {
         Pasien pasien1 = new Pasien();
+        pasien1.setNomorRekamMedis("001");
         pasien1.setNama("Puspa");
         pasien1.setAlamat("klaten");
         
         Pasien pasien2 = new Pasien();
+        pasien2.setNomorRekamMedis("001");
         pasien2.setNama("Adi");
         pasien2.setAlamat("yogya");
         

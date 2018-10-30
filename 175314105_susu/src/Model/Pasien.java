@@ -23,138 +23,296 @@ import sun.net.ftp.FtpClient;
  * @author admin
  */
 public final class Pasien implements Serializable {
-    private String noRekamMedis,nama,alamat,tempatLahir; //deklarasi variabel bertipe data String dan bersifat private
-    private int tanggalLahir,bulanLahir,tahunLahir; //deklarasi variabel bertipe data integer dan bersifat privat
-    public static ArrayList<Pasien>daftarPasienKlinik=new ArrayList<Pasien>();
-     
-    public Pasien(String nama, String alamat, String tempatLahir, int tanggalLahir, int bulanLahir, int tahunLahir, String nik){ //menambahkan konstruktor, Konsktruktor adalah method yang pertama kali dijalankan pada saat sebuah objek pertama kali diciptakan
-        setNama(nama);
-        setAlamat(alamat);
-        setTempatLahir(tempatLahir);
-        setTanggalLahir(tanggalLahir);
-        setBulanLahir(bulanLahir);
-        setTahunLahir(tahunLahir);
-        setNoRekamMedis(nik);
-    }
+    private String nama, alamat, tempatLahir;
+    private String nomorRekamMedis, NIK;
+    private int tanggalLahir, bulanLahir, tahunLahir;
+    /**
+     *
+     */
+    public static ArrayList<Pasien> daftarPasien = new ArrayList<Pasien>();
+    /**
+     * konstruktor untuk mendeklarasikan kelas Pasien
+     */
     public Pasien() {
     }
-    public String getNoRekamMedis() { //membuat method bernama getNoRekamedis yang akan mereturn variabel bertipe data String
-        return noRekamMedis;
+    /**
+     * konstruktor untuk mendeklarasikan kelas Pasien dengan parameter
+     *
+     * @param nama
+     * @param alamat
+     * @param tempatLahir
+     * @param tanggalLahir
+     * @param bulanLahir
+     * @param tahunLahir
+     * @param NIK
+     */
+    public Pasien(String nama, String alamat, String tempatLahir, int tanggalLahir, int bulanLahir, int tahunLahir, String NIK) {
+        this.nama = nama;
+        this.alamat = alamat;
+        this.tempatLahir = tempatLahir;
+        this.NIK = NIK;
+        this.tanggalLahir = tanggalLahir;
+        this.bulanLahir = bulanLahir;
+        this.tahunLahir = tahunLahir;
     }
-    public void setNoRekamMedis(String noRekamMedis) throws NumberFormatException { //membuat method void dengan menambahkan throws NumberFormatException
-        if (noRekamMedis.toCharArray().length>=6) { //Method ini mengalokasikan array karakter baru, yang panjangnya sesuai dengan panjang string yang ditentukan
-            this.noRekamMedis = noRekamMedis;
-        }else{
-                throw new NumberFormatException("Nomor Rekam Medis Salah"); //NumberFormatException berfungsi untuk menangani kesalahan2 dalam format penulisan angka.
-                }
+    /**
+     *
+     * @param nama
+     * @param tanggalLahir
+     * @param bulanLahir
+     * @param tahunLahir
+     * @param noRM
+     */
+    public Pasien(String nama, int tanggalLahir, int bulanLahir, int tahunLahir, String noRM) {
+        this.nama = nama;
+        this.tanggalLahir = tanggalLahir;
+        this.bulanLahir = bulanLahir;
+        this.tahunLahir = tahunLahir;
     }
-    public String getNama() { //membuat method bernama getNama yang akan mereturn variabel bertipe data String
+    /**
+     * dalam method ini kita akan mengembalikan value nama
+     *
+     * @return
+     */
+    public String getNama() {
         return nama;
     }
-    public void setNama(String nama) { //membuat method void bernama setNama dengan parameter variabel nama bertipe data String
+    /**
+     * dalam method ini kita akan mengatur value nama dengan parameter alamat
+     *
+     * @param nama
+     */
+    public void setNama(String nama) {
         this.nama = nama;
     }
-    public String getAlamat() { //membuat method bernama getAlamat yang akan mereturn variabel bertipe data String
+    /**
+     * dalam method ini kita akan mengembalikan value alamat
+     *
+     * @return
+     */
+    public String getAlamat() {
         return alamat;
     }
-    public void setAlamat(String alamat) { //membuat method void bernama setNama dengan parameter variabel alamat bertipe data String
+    /**
+     * dalam method ini kita akan mengatur value alamat dengan parameter alamat
+     *
+     * @param alamat
+     */
+    public void setAlamat(String alamat) {
         this.alamat = alamat;
     }
-    public String getTempatLahir() { //membuat method bernama getTempatLair yang akan mereturn variabel bertipe data String
+    /**
+     * dalam method ini kita akan mengembalikan value tempatLahir
+     *
+     * @return
+     */
+    public String getTempatLahir() {
         return tempatLahir;
     }
-    public void setTempatLahir(String tempatLahir) {  //membuat method void bernama setTempatLahir dengan parameter variabel tempatLahir bertipe data integer
+    /**
+     * dalam method ini kita akan mengatur value tempatLahir dengan parameter
+     * tempatLahir
+     *
+     * @param tempatLahir
+     */
+    public void setTempatLahir(String tempatLahir) {
         this.tempatLahir = tempatLahir;
     }
-    public int getTanggalLahir() { //membuat method bernama getTanggalLahir yang akan mereturn variabel bertipe data integer
+    /**
+     * method ini mengembalikan value tanggalLahir
+     *
+     * @return
+     */
+    public int getTanggalLahir() {
         return tanggalLahir;
     }
-//    public void setTanggalLahir(int tanggalLahir) throws NumberFormatException { //membuat method void bernama setTanggalLahir dengan parameter variabel tanggalLahir bertipe data integer
-//        if(tanggalLahir>0 && tanggalLahir<32)
-//        this.tanggalLahir = tanggalLahir;
-//        else{  throw new NumberFormatException("Tanggal Lahir tidak vaild");}
-//    }
-    public void setTanggalLahir(int tanggalLahir){
-        this.tanggalLahir=tanggalLahir;}
-    public int getBulanLahir() {  //membuat method bernama getBulanLahir yang akan mereturn variabel bertipe data integer
-        return bulanLahir;
-    }
-//    public void setBulanLahir(int bulanLahir) throws NumberFormatException { //membuat method void bernama setBulanLahir dengan parameter variabel bulanLahir bertipe data integer
-//       if(bulanLahir>0 && bulanLahir<13)
-//        this.bulanLahir = bulanLahir;
-//       else{  throw new NumberFormatException("Bulan Lahir tidak vaild");}
-//    }
-    public void setBulanLahir(int bulanLahir){
-        this.bulanLahir=bulanLahir;}
-    public int getTahunLahir() {  //membuat method bernama getTahunLahir yang akan mereturn variabel bertipe data integer
-        return tahunLahir;
-    }
-
-//    public void setTahunLahir(int tahunLahir)  throws NumberFormatException { //membuat method void bernama setTahunlahir dengan parameter variabel tahunLahir bertipe data integer
-//         if(tahunLahir>0 )
-//        this.tahunLahir = tahunLahir;
-//         else{  throw new NumberFormatException("Tahun Lahir tidak vaild");}
-//    }
-    public void setTahunLahir(int tahunLahir){
-        this.tahunLahir=tahunLahir;}
-    public String getRekamMedis() {
-        return noRekamMedis;
-    }
-    public void setNik(String text) throws Exception {
-        if (text.length()== 6) {
-            this.noRekamMedis=text;
-        }else{
-            throw new Exception("NIK harus terdiri dari 6 digit");
+    /**
+     * mengset nilai variabel NIK sama dengan parameter NIK dengan tipe data
+     * String
+     *
+     * @param NIK
+     * @throws Exception
+     */
+    public void setNIK(String NIK) throws Exception {
+        if (NIK.length() == 16) {
+            String nik = NIK;
+            this.setNomorRekamMedis(nik);
+            this.NIK = NIK;
+        } else {
+            throw new Exception("Nomor Induk Kependudukan terdiri dari 16 karakter");
         }
     }
-    public void setRekamMedis(String text) {
-        text=noRekamMedis;
+    /**
+     * mengembalikan nilai NIK
+     *
+     * @return
+     */
+    public String getNIK() {
+        return NIK;
     }
+    /**
+     * mengembalikan nilai nomorRekamMedis
+     *
+     * @return
+     */
+    public String getNomorRekamMedis() {
+        return nomorRekamMedis;
+    }
+    /**
+     * mengset nilai variabel nomorRekamMedis sama dengan NIK
+     *
+     * @param nomorRekamMedis
+     * @throws Exception
+     */
+    public void setNomorRekamMedis(String nomorRekamMedis) {
+        //pengecekan panjang karakter variabel nomorRekamMedis harus sama dengan 16
+        //if (nomorRekamMedis.length() == 16) {
+        //nilai variabel nomorRekamMedis sama dengan NIK
+        this.nomorRekamMedis = nomorRekamMedis;
+        //  } else {
+        //pesan jika bernilai false
+        //      throw new Exception("Nomor Rekam Medis terdiri dari 16 karakter ");
+        // }
+    }
+    /**
+     * mengset nilai tanggalLahir sama dengan nilai parameter tanggalLahir
+     * dengan tipe data integer
+     *
+     * @param tanggalLahir
+     * @throws Exception
+     */
+    public void setTanggalLahir(int tanggalLahir) throws Exception {
+        if (tanggalLahir > 0) {
+            if (tanggalLahir <= 31) {
+                this.tanggalLahir = tanggalLahir;
+            } else {
+                throw new Exception("Tanggal lahir yang anda masukkan tidak valid");
+            }
+        } else {
+            throw new Exception("Tanggal lahir yang anda masukkan tidak valid");
+        }
+    }
+    /**
+     * mengembalikan nilai variabel bulanLahir
+     *
+     * @return
+     */
+    public int getBulanLahir() {
+        return bulanLahir;
+    }
+    /**
+     * mengset nilai variabel bulanLahir sama dengan nilai parameter bulanLhair
+     * dengan tipe data integer
+     *
+     * @param bulanLahir
+     * @throws Exception
+     */
+    public void setBulanLahir(int bulanLahir) throws Exception {
+        if (bulanLahir > 0) {
+            if (bulanLahir <= 12) {
+                this.bulanLahir = bulanLahir;
+            } else {
+                throw new Exception("Bulan lahir yang anda masukkan tidak valid");
+            }
+        } else {
+            throw new Exception("Bulan lahir yang anda masukkan tidak valid");
+        }
+    }
+    /**
+     * mengembalikan nilai variabel tahunLahir
+     *
+     * @return
+     */
+    public int getTahunLahir() {
+        return tahunLahir;
+    }
+    /**
+     * mengset nilai tahunLahir sama dengan nilai parameter tahunLahir dengan
+     * tipe data integer
+     *
+     * @param tahunLahir
+     * @throws Exception
+     */
+    public void setTahunLahir(int tahunLahir) throws Exception {
+        if (tahunLahir > 0) {
+            this.tahunLahir = tahunLahir;
+        } else {
+            throw new Exception("Tahun lahir yang anda masukkan tidak valid");
+        }
+    }
+    /**
+     * membuat format tanggal kelahiran dengan objek Date
+     *
+     */
+    public void getTanggalKelahiran() {
+        Date tanggalKelahiran = new Date(getTahunLahir() - 1900, getBulanLahir() - 1, getTanggalLahir());
+        SimpleDateFormat ft = new SimpleDateFormat("dd - MM - yyyy");
+        System.out.println(ft.format(tanggalKelahiran));
+    }
+    /**
+     * mengembalikan nilai objek daftarPasien dengan tipe ArrayList
+     *
+     * @return
+     */
     public static ArrayList<Pasien> getDaftarPasien() {
-        return daftarPasienKlinik;
+        return daftarPasien;
     }
-    @Override
-    public String toString() {
-        return noRekamMedis+"\t"+nama + "\t" + alamat + "\n";
+    /**
+     * menambahkan objek pasienBaru ke dalam objek daftarPasien
+     *
+     * @param pasienBaru
+     */
+    public static void tambahPasienBaru(Pasien pasienBaru) {
+        daftarPasien.add(pasienBaru);
     }
-    public static void tambahPasienBaru(Pasien test) {
-    daftarPasienKlinik.add(test);
-    }
-    public static Pasien cariPasien(String string) {
-        for (int i = 0; i < daftarPasienKlinik.size(); i++) {
-            if(daftarPasienKlinik.get(i).getNoRekamMedis()==string)
-                return daftarPasienKlinik.get(i);
+    /**
+     * mencari data pasien berdasarakan nomor rekam medis
+     *
+     * @param NoRM
+     * @return
+     */
+    public static Pasien cariPasien(String NoRM) {
+        for (int i = 0; i < daftarPasien.size(); i++) {
+            if (daftarPasien.get(i).getNIK().equals(NoRM)) {
+                return daftarPasien.get(i);
+            }
         }
         return null;
     }
+    /**
+     *
+     * @param file
+     */
     public static void simpanDaftarPasien(File file) {
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(file, false);
-            for (int i = 0; i < daftarPasienKlinik.size(); i++) {
-                String data = daftarPasienKlinik.get(i).toString();
+            for (int i = 0; i < daftarPasien.size(); i++) {
+                String data = daftarPasien.get(i).toString();
                 fos.write(data.getBytes());
             }
         } catch (FileNotFoundException ex) {
-            System.out.println(ex.getMessage());
-//            Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
-
+            Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-//            Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
-System.out.println(ex.getMessage());
+            Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 fos.close();
-
             } catch (IOException ex) {
-//                Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
-System.out.println(ex.getMessage());            }
+                Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
+
+    /**
+     *
+     * @param file
+     */
     public static void bacaDaftarPasien(File file) {
         FileInputStream fis = null;
         String hasil = "";
         int dataInt;
+        boolean noRM = false;
         boolean nama = false;
         boolean alamat = false;
         Pasien temp = new Pasien();
@@ -163,36 +321,57 @@ System.out.println(ex.getMessage());            }
             while ((dataInt = fis.read()) != -1) {
                 if ((char) dataInt != '\n') {
                     if ((char) dataInt != '\t') {
-                        hasil = hasil + (char)dataInt;
-                    } else if (nama == false) {
-                        temp.setNama(hasil);
-                        nama = true;
-                        hasil = "";
-                    } else if (alamat == false) {
-                        temp.setAlamat(hasil);
-                        alamat = true;
-                        hasil = "";
+                        hasil = hasil + (char) dataInt;
+                    } else {
+                        if (noRM == false) {
+                            temp.setNomorRekamMedis(hasil);
+                            noRM = true;
+                            hasil = "";
+                        } else if (nama == false) {
+                            temp.setNama(hasil);
+                            nama = true;
+                            hasil = "";
+                        }
                     }
+                } else {
+                    temp.setAlamat(hasil);
+                    alamat = true;
+                    hasil = "";
+                    Pasien.tambahPasienBaru(temp);
+                    noRM = false;
+                    nama = false;
+                    alamat = false;
+                    temp=new Pasien();
                 }
             }
         } catch (FileNotFoundException ex) {
-             System.out.println(ex.getMessage());
-
+            Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-             System.out.println(ex.getMessage());
+            Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-     public void printInfo() {
+    /**
+     * method ini membuat kita lebih mudah saat akan menampilkannya di main
+     *
+     */
+    public void printInfo() {
         System.out.printf("%-25s", "Nomor Rekam Medis Pasien");
-        System.out.println(": " + getNoRekamMedis());
+        System.out.println(": " + getNomorRekamMedis());
         System.out.printf("%-25s", "Nama Pasien");
         System.out.println(": " + getNama());
         System.out.printf("%-25s", "Tempat, Tanggal Lahir");
         System.out.print(": " + getTempatLahir() + " , ");
-        getTanggalLahir();
+        getTanggalKelahiran();
         System.out.printf("%-25s", "Alamat");
         System.out.println(": " + getAlamat());
         System.out.println("");
     }
+
+    @Override
+    public String toString() {
+        return nomorRekamMedis + "\t" + nama + "\t" + alamat + "\n";
+    }
+
 }
+    

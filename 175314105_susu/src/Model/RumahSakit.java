@@ -91,7 +91,7 @@ public class RumahSakit implements Serializable {
                         hasil = hasil + (char) dataInt;
                     } else {
                         if (noRM == false) {
-                            temp.setNoRekamMedis(hasil);
+                            temp.setNomorRekamMedis(hasil);
                             noRM = true;
                             hasil = "";
                         } else if (nama == false) {

@@ -6,6 +6,7 @@
 package View;
 
 import Model.RumahSakit;
+import static View.FrameUtama.rumahSakit;
 
 /**
  *
@@ -136,10 +137,10 @@ public class FrameUtama extends javax.swing.JFrame {
     private javax.swing.JMenuItem lihatDokterMenuItem;
     private javax.swing.JMenuBar menuBar;
     // End of variables declaration//GEN-END:variables
-    public static RumahSakit RumahSakit = new RumahSakit("RS Cepat Sembuh");
+    //public static RumahSakit RumahSakit = new RumahSakit("RS Cepat Sembuh");
     public static LihatDokterDialog lihatDokter;
     private void inisialisasi() {
-        this.setTitle(rumahSakit.getNama());
+       // this.setTitle(RumahSakit.getNama());
         lihatDokter = new LihatDokterDialog(this, true);
         lihatDokter.setVisible(false);
     }

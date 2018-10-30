@@ -125,8 +125,8 @@ public class DaftarAntrian extends JDialog implements ActionListener {
             Pasien baru = new Pasien();
                 baru.setNama(namaText.getText());
                 baru.setAlamat(alamatText.getText());
-                baru.setNoRekamMedis(nikText.getText());
-                baru.setNik(nikText.getText());
+                baru.setNomorRekamMedis(nikText.getText());
+                baru.setNIK(nikText.getText());
                 int tanggal = Integer.valueOf(this.tanggalCombo.getSelectedItem().toString());
                 int bulan = Integer.valueOf(this.bulanCombo.getSelectedItem().toString());
                 int tahun = Integer.valueOf(this.tahunCombo.getSelectedItem().toString());

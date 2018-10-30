@@ -137,7 +137,7 @@ public class LihatDokterDialog extends javax.swing.JDialog {
     private javax.swing.JButton tambahButton;
     // End of variables declaration//GEN-END:variables
     private DokterTableModel dokterTableModel =
-            new DokterTableModel(FrameUtama.rumahSakit.getDaftarDokter());
+            new DokterTableModel(FrameUtama.RumahSakit.getDaftarDokter());
 
     /**
      * @return the dokterTableModel
