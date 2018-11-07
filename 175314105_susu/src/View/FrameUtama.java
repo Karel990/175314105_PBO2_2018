@@ -5,8 +5,9 @@
  */
 package View;
 
+import Model.Dokter;
 import Model.RumahSakit;
-import static View.FrameUtama.rumahSakit;
+import java.util.ArrayList;
 
 /**
  *
@@ -143,5 +144,19 @@ public class FrameUtama extends javax.swing.JFrame {
        // this.setTitle(RumahSakit.getNama());
         lihatDokter = new LihatDokterDialog(this, true);
         lihatDokter.setVisible(false);
+    }
+
+    static class RumahSakit {
+
+        static String getNama() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        static ArrayList<Dokter> getDaftarDokter() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        public RumahSakit() {
+        }
     }
 }

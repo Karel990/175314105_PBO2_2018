@@ -18,7 +18,7 @@ public class LihatDokterDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         dokterTable.setModel(dokterTableModel);
-        this.setTitle(FrameUtama.rumahSakit.getNama());
+        this.setTitle(FrameUtama.RumahSakit.getNama());
     }
 
     /**
